@@ -47,9 +47,11 @@ public class LoginPage extends DashboardPage {
     @FindBy(css = "form[class='login-container']")
     public WebElement afterBackBLoginSection;
 
-    @FindBy(css = "//h4[text()='Check Your Email']")
-    public WebElement afterNumberEnter;
+    @FindBy(xpath = "(//div[@class='reset-info'])[2]")
+    public WebElement checkEmailError;
 
+    @FindBy(id = "back-to-login")
+    public WebElement backButton;
 
     @FindBy(id = "forgot-password-link")
     public WebElement needHelp2;

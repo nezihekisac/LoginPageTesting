@@ -135,18 +135,50 @@ public class MyStepdefs {
     }
 
     @When("the user enters {string}")
-    public void theUserEnters(String arg0) {
+    public void theUserEnters(String someNumbers) {
+        loginPage.resetemailbox.sendKeys(someNumbers);
+        BrowserUtils.waitFor(3);
+        loginPage.sendpasswordresetButton.click();
+        BrowserUtils.waitFor(3);
     }
 
     @Then("Check email error should be displayed")
     public void checkEmailErrorShouldBeDisplayed() {
+        Assert.assertTrue(loginPage.checkEmailError.isEnabled());
     }
 
-    @When("the user ckicks the Back button")
+    @When("the user clicks the Back button")
     public void theUserCkicksTheBackButton() {
+        Assert.assertTrue(loginPage.backButton.isDisplayed());
+        loginPage.backButton.click();
     }
 
-    @Then("the Back button should be")
-    public void theBackButtonShouldBe() {
+    @Then("the user should be able to see login section again")
+    public void theUserShouldBeAbleToSeeLoginSectionAgain() {
+        Assert.assertTrue(loginPage.afterBackBLoginSection.isEnabled());
+        BrowserUtils.waitFor(2);
+    }
+
+    @When("the user enters the same number twice")
+    public void theUserEntersTheSameTwice() {
+        loginPage.needHelp1.click();
+        loginPage.sendpasswordresetButton.click();
+    }
+
+    @Then("the email check error should be displayed")
+    public void theEmailCheckErrorShouldBeDisplayed() {
+        Assert.assertTrue(loginPage.checkEmailError.isEnabled());
+        BrowserUtils.waitFor(2);
+    }
+
+    @When("the user clicks the back button")
+    public void theUserClicksTheBackButton() {
+        loginPage.backButton.click();
+        BrowserUtils.waitFor(2);
+    }
+
+    @Then("the user should be able to see login section")
+    public void theUserShouldBeAbleToSeeLoginSection() {
+        Assert.assertTrue(loginPage.afterBackBLoginSection.isDisplayed());
     }
 }
