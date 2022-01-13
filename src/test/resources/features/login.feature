@@ -16,7 +16,7 @@ Feature: Login
     Then user should be able to land home page
 
 
-  Scenario Outline: Login functions with invalid info for different users
+  Scenario Outline: Login functions with invalid info for different users and reset password,errors and back link
     When the user logs in using following credentials "<emails>" and "<passwords>"
     Then the following message should be displayed
     When the user clicks on the Need help? link in the message
@@ -29,11 +29,11 @@ Feature: Login
     Then Send Password Reset button should not be displayed
     When the user enters "<someNumbers>"
     Then Check email error should be displayed
-    When the user clicks the Back button
+    When the user clicks the Back link
     Then the user should be able to see login section again
     When the user enters the same number twice
     Then the email check error should be displayed
-    When the user clicks the back button
+    When the user clicks the back link
     Then the user should be able to see login section
     Examples:
       | emails             | passwords | wrongEmail        | someNumbers |
@@ -44,6 +44,32 @@ Feature: Login
       |                    | Eyey357   | nezkisac@gmail    | 12          |
       | nezkisac@gmail.com |           | nezkisac@gmailcom | 1234        |
       | 12233              | !@£  +    | nezkisacgmail.com | 3           |
+
+
+  Scenario:clicking Need help? link below the login button
+    When the user clicks the Need help ? link under the login button
+    Then the user should be able to see login help section
+
+  Scenario:Login with Organization
+    When the user clicks on the Log in with an Organization button
+    Then the user should be able to see login email with organization section
+    When the user enters with valid "Email" which is not for organization
+    Then error message should be displayed
+#    When the user enters with invalid "<credentials>" with three or more then three letters
+#    Then login with organization login button should be enabled
+#
+#
+#    Examples:
+#      | credentials       |
+#      | abc               |
+#      | nezkisacgmail.com |
+#      | 1234              |
+
+
+
+
+
+
 
 
 

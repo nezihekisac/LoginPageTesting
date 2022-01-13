@@ -144,10 +144,10 @@ public class MyStepdefs {
 
     @Then("Check email error should be displayed")
     public void checkEmailErrorShouldBeDisplayed() {
-        Assert.assertTrue(loginPage.checkEmailError.isEnabled());
+        Assert.assertTrue(loginPage.afterNeedHelp1.isEnabled());
     }
 
-    @When("the user clicks the Back button")
+    @When("the user clicks the Back link")
     public void theUserCkicksTheBackButton() {
         Assert.assertTrue(loginPage.backButton.isDisplayed());
         loginPage.backButton.click();
@@ -167,11 +167,11 @@ public class MyStepdefs {
 
     @Then("the email check error should be displayed")
     public void theEmailCheckErrorShouldBeDisplayed() {
-        Assert.assertTrue(loginPage.checkEmailError.isEnabled());
+        Assert.assertTrue(loginPage.afterNeedHelp1.isEnabled());
         BrowserUtils.waitFor(2);
     }
 
-    @When("the user clicks the back button")
+    @When("the user clicks the back link")
     public void theUserClicksTheBackButton() {
         loginPage.backButton.click();
         BrowserUtils.waitFor(2);
@@ -181,4 +181,51 @@ public class MyStepdefs {
     public void theUserShouldBeAbleToSeeLoginSection() {
         Assert.assertTrue(loginPage.afterBackBLoginSection.isDisplayed());
     }
+
+    @When("the user clicks the Need help ? link under the login button")
+    public void theUserClicksTheNeedHelpLinkUnderTheLoginButton() {
+        loginPage.needHelp2.click();
+        BrowserUtils.waitForVisibility(loginPage.afterNeedHelp2,1);
+    }
+
+    @Then("the user should be able to see login help section")
+    public void theUserShouldBeAbleToSeeLoginHelpSection() {
+        Assert.assertTrue(loginPage.afterNeedHelp2.isEnabled());
+    }
+
+    @When("the user clicks on the Log in with an Organization button")
+    public void theUserClicksOnTheLogInWithAnOrganizationButton() {
+        loginPage.loginWithOrganizationButton.click();
+    }
+
+    @Then("the user should be able to see login email with organization section")
+    public void theUserShouldBeAbleToSeeLoginEmailWithOorganizationSection() {
+        Assert.assertTrue(loginPage.afterLoginOrganization.isEnabled());
+    }
+
+    @When("the user enters with valid {string} which is not for organization")
+    public void theUserEntersWithValidWhichIsNotForOrganization(String email) {
+        loginPage.OrganizationEmailBox.sendKeys(ConfigurationReader.get("Email"));
+        loginPage.OrganizationMailLoginButton.click();
+    }
+
+    @Then("error message should be displayed")
+    public void errorMessageShouldBeDisplayed() {
+        Assert.assertTrue(loginPage.cantloginError.isEnabled());
+    }
+
+//    @When("the user enters with invalid {string} with three or more then three letters")
+//    public void theUserClickAndEnterWithInvalid(String credentials) {
+//        loginPage.OrganizationEmailBox.sendKeys(credentials);
+//
+//
+//    }
+//    @Then("login with organization login button should be enabled")
+//    public void loginWithOrganizationLoginButtonShouldBeEnabled() {
+//        Assert.assertTrue(loginPage.OrganizationMailLoginButton1.isDisplayed());
+//    }
+
+
 }
+
+
