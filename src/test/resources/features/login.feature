@@ -29,17 +29,21 @@ Feature: Login
     Then Send Password Reset button should not be displayed
     When the user enters "<someNumbers>"
     Then Check email error should be displayed
-    When the user ckicks the Back button
-    Then the Back button should be
+    When the user clicks the Back button
+    Then the user should be able to see login section again
+    When the user enters the same number twice
+    Then the email check error should be displayed
+    When the user clicks the back button
+    Then the user should be able to see login section
     Examples:
       | emails             | passwords | wrongEmail        | someNumbers |
       | wrongemail         | wrong     | dhdh@gm.com       | 3           |
-      | nezkisac@gmail.com | wrong     | sd                | 3           |
+      | nezkisac@gmail.com | wrong     | sd                | 123         |
       | wrong              | Eyey357.  | a jj@gmail.com    | 1           |
-      |                    |           | d@                | 9           |
-      |                    | Eyey357   | nezkisac@gmail    | 3           |
-      | nezkisac@gmail.com |           | nezkisac@gmailcom | 9           |
-      | 12233              | !@£  +    | nezkisacgmail.com | 1           |
+      |                    |           | d@                | 19          |
+      |                    | Eyey357   | nezkisac@gmail    | 12          |
+      | nezkisac@gmail.com |           | nezkisac@gmailcom | 1234        |
+      | 12233              | !@£  +    | nezkisacgmail.com | 3           |
 
 
 
