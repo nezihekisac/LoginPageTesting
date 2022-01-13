@@ -20,7 +20,7 @@ public class LoginPage extends DashboardPage {
     @FindBy(css = "button[id='logIn']")
     public WebElement logIn;
 
-    @FindBy(id = "logInWithOrganization")
+    @FindBy(css = "div[class='login-organization-button']")
     public WebElement loginWithOrganizationButton;
 
     @FindBy(css= "label[for='remember-me']")
@@ -48,7 +48,10 @@ public class LoginPage extends DashboardPage {
     public WebElement afterBackBLoginSection;
 
     @FindBy(xpath = "(//div[@class='reset-info'])[2]")
-    public WebElement checkEmailError;
+    public WebElement afterNeedHelp1;
+
+    @FindBy(xpath = "(//div[@class='reset-info'])[1]")
+    public WebElement afterNeedHelp2;
 
     @FindBy(id = "back-to-login")
     public WebElement backButton;
@@ -59,14 +62,25 @@ public class LoginPage extends DashboardPage {
     @FindBy(css = "#remember-me")
     public WebElement checkbox;
 
+    @FindBy(css = "div[class='uni-bg--level0 uni-padding--one']")
+    public WebElement afterLoginOrganization;
 
+    @FindBy(id = "uniId_1")
+    public WebElement OrganizationEmailBox;
 
+    @FindBy(xpath = "//*[text()='Log In']")
+    public WebElement OrganizationMailLoginButton;
 
+    //@FindBy(xpath = "//*[text()=' disabled>Log In']")
+    //public WebElement OrganizationMailLoginButton2;
+
+    @FindBy(css = "div[class='login-error-container-code']")
+    public WebElement cantloginError;
 
     public void login(String userNameStr, String passwordStr) {
         email.sendKeys(userNameStr);
         password.sendKeys(passwordStr);
         logIn.click();
-        // verification that we logged
+
     }
 }
