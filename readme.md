@@ -1,10 +1,14 @@
 
 ## About the Project
 
-- Dependencies were installed into the pom.xml file url was added to Configuration Properties with browser, email and passcode
+- Dependencies were installed into the pom.xml file url was added to Configuration Properties with browser, email and passcode 
+
   browser=chrome
-  url=https://www.hudl.com/en_gb/
+
+  url=https://www.hudl.com/en_gb/ 
+
   Email={you need to use your credentials}
+
   Password={You need to use your credentials}
 
 -   My framework is Cucumber (BDD).
@@ -32,11 +36,11 @@
 -   I have 11 different scenario and 149 test cases which are negative and positive tests.
 
 ### Build with
-- Java 8
+- Java 8               
 - Intellij
-- Cucumber BDD
+- Cucumber BDD        
 - Selenium WebDriver
-- POM
+- POM                  
 - Json
 - Gherkin
 
