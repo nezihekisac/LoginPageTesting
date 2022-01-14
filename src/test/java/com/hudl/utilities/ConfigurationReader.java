@@ -3,9 +3,7 @@ package com.hudl.utilities;
 import java.io.FileInputStream;
 import java.util.Properties;
 
-/**
- * reads the properties file configuration.properties
- */
+
 public class ConfigurationReader {
 
     private static Properties properties;

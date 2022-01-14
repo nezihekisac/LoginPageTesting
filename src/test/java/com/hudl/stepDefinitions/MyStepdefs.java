@@ -23,9 +23,8 @@ public class MyStepdefs {
     public void theUserOnTheDashboardAndTheUserClicksOnTheLoginButton() {
         String url=ConfigurationReader.get("url");
         Driver.get().get(url);
-       // BrowserUtils.waitFor(1);
         dashboardPage.DashboardLogin.click();
-       // BrowserUtils.waitFor(1);
+
     }
 
 
@@ -47,7 +46,6 @@ public class MyStepdefs {
 
     @Then("Remember me checkbox should be selected")
     public void rememberMeCheckboxShouldBeSelected() {
-       // BrowserUtils.waitFor(1);
         Assert.assertTrue(loginPage.checkbox.isSelected());
     }
 
@@ -55,9 +53,8 @@ public class MyStepdefs {
     @When("user enters with the valid credentials {string} and {string}")
     public void userEntersWithTheValidCredentialsAnd(String email, String password) {
         loginPage.email.sendKeys(ConfigurationReader.get("Email"));
-       // BrowserUtils.waitFor(1);
         loginPage.password.sendKeys(ConfigurationReader.get("Password"));
-       // BrowserUtils.waitFor(1);
+
 
     }
 
@@ -70,7 +67,6 @@ public class MyStepdefs {
     @Then("user should be able to land home page")
     public void userShouldBeAbleToLandHomePage() {
         String actualTitle = Driver.get().getTitle();
-
         Assert.assertEquals("Home - Hudl",actualTitle);
     }
 
@@ -80,7 +76,6 @@ public class MyStepdefs {
         loginPage.login(email,password);
 
     }
-
 
     @Then("the following message should be displayed")
     public void theFollowingShouldBeDisplayed() {
@@ -204,7 +199,7 @@ public class MyStepdefs {
     }
 
     @When("the user enters with valid {string} which is not for organization")
-    public void theUserEntersWithValidWhichIsNotForOrganization(String email) {
+    public void theUserEntersWithValidWhichIsNotForOrganization(String Email) {
         loginPage.OrganizationEmailBox.sendKeys(ConfigurationReader.get("Email"));
         loginPage.OrganizationMailLoginButton.click();
     }
@@ -213,18 +208,6 @@ public class MyStepdefs {
     public void errorMessageShouldBeDisplayed() {
         Assert.assertTrue(loginPage.cantloginError.isEnabled());
     }
-
-//    @When("the user enters with invalid {string} with three or more then three letters")
-//    public void theUserClickAndEnterWithInvalid(String credentials) {
-//        loginPage.OrganizationEmailBox.sendKeys(credentials);
-//
-//
-//    }
-//    @Then("login with organization login button should be enabled")
-//    public void loginWithOrganizationLoginButtonShouldBeEnabled() {
-//        Assert.assertTrue(loginPage.OrganizationMailLoginButton1.isDisplayed());
-//    }
-
 
 }
 

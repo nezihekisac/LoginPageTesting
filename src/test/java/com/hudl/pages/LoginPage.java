@@ -71,9 +71,6 @@ public class LoginPage extends DashboardPage {
     @FindBy(xpath = "//*[text()='Log In']")
     public WebElement OrganizationMailLoginButton;
 
-    //@FindBy(xpath = "//*[text()=' disabled>Log In']")
-    //public WebElement OrganizationMailLoginButton2;
-
     @FindBy(css = "div[class='login-error-container-code']")
     public WebElement cantloginError;
 

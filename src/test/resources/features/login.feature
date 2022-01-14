@@ -5,17 +5,19 @@ Feature: Login
   Background:
     Given the user on the dashboard and The user clicks on the login button
 
+    @test1
   Scenario: Verifying Remember me checkbox is selected
     When the user should land on the login page
     And the user clicks Remember me checkbox
     Then Remember me checkbox should be selected
 
+      @test2
   Scenario: Login with the credentials
     When user enters with the valid credentials "Email" and "Password"
     And user clicks login button
     Then user should be able to land home page
 
-
+   @test3
   Scenario Outline: Login functions with invalid info for different users and reset password,errors and back link
     When the user logs in using following credentials "<emails>" and "<passwords>"
     Then the following message should be displayed
@@ -45,25 +47,18 @@ Feature: Login
       | nezkisac@gmail.com |           | nezkisac@gmailcom | 1234        |
       | 12233              | !@£  +    | nezkisacgmail.com | 3           |
 
-
+ @test4
   Scenario:clicking Need help? link below the login button
     When the user clicks the Need help ? link under the login button
     Then the user should be able to see login help section
 
+   @test5
   Scenario:Login with Organization
     When the user clicks on the Log in with an Organization button
     Then the user should be able to see login email with organization section
     When the user enters with valid "Email" which is not for organization
     Then error message should be displayed
-#    When the user enters with invalid "<credentials>" with three or more then three letters
-#    Then login with organization login button should be enabled
-#
-#
-#    Examples:
-#      | credentials       |
-#      | abc               |
-#      | nezkisacgmail.com |
-#      | 1234              |
+
 
 
 
