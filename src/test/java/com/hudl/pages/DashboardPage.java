@@ -16,8 +16,6 @@ public class DashboardPage {
     @FindBy(css = "div>a.mainnav__btn.mainnav__btn--primary")
     public WebElement DashboardLogin;
 
-
-
     public DashboardPage() {
         PageFactory.initElements(Driver.get(), this);
     }
